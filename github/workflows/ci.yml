@@ -5,10 +5,6 @@ on:
     branches: [Develop]
   push:
     branches: [Develop]
-<<<<<<< HEAD:github/workflows/ci.yml
-=======
-
->>>>>>> 954dd40ecb8b0831ad176d4aa07b564794c796f2:github/ci.yml
 
 jobs:
   build:
@@ -27,14 +23,4 @@ jobs:
       - name: Build Project
         if: github.event_name == 'push'
         run: npm run build
-      #- name: Deploy to Staging
-       # if: github.event_name == 'push'
-        #run: 
-
-          # do this right
-<<<<<<< HEAD:github/workflows/ci.yml
-          # Is this right??
-=======
-
-          # Is this right??
->>>>>>> 954dd40ecb8b0831ad176d4aa07b564794c796f2:github/ci.yml
+    
