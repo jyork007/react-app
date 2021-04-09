@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
     steps:
       - uses: actions/checkout@v2
       - name: Cache node_modules
@@ -50,7 +52,9 @@ jobs:
       - name: Create a Release
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: npx semantic-release
+      - name: Upload Coverage Reports
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: npx codecov
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     
